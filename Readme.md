@@ -1,161 +1,183 @@
-Network Security Tools
-1. Port Scanner
+## **CyberSecurity Toolkit**
 
-    Scan IP addresses for open/closed ports.
+This is a **cross-platform application** built using **Flutter**, which provides various cybersecurity tools such as:
 
-2. Ping Utility
 
-    Measure network response time and check connectivity.
 
-3. Traceroute
+### **1. Network Security Tools**
 
-    Trace the path of packets between your system and a target host.
+1.1 **Port Scanner**
 
-4. ARP Scanner
+   - Scan IP addresses for open/closed ports.
 
-    Scan local network to detect devices based on their IP and MAC addresses.
+1.2 **Ping Utility**
 
-5. Network Traffic Monitor (Packet Sniffer)
+   - Measure network response time and check connectivity.
 
-    Capture and analyze network packets to inspect traffic in real-time.
+1.3 **Traceroute**
 
-6. Netstat Utility
+   - Trace the path of packets between your system and a target host.
 
-    Display active connections, listening ports, and network interfaces.
+1.4 **ARP Scanner**
 
-7. Bandwidth Usage Monitor
+   - Scan local network to detect devices based on their IP and MAC addresses.
 
-    Monitor real-time bandwidth usage across network interfaces.
+1.5 **Network Traffic Monitor (Packet Sniffer)**
 
-8. Nmap Wrapper
+   - Capture and analyze network packets to inspect traffic in real-time.
 
-    Integrate Nmap to perform detailed network and security scans.
+1.6 **Netstat Utility**
 
-Web Penetration Testing Tools
-1. Web Vulnerability Scanner
+   - Display active connections, listening ports, and network interfaces.
 
-    Scan websites for vulnerabilities such as XSS, SQL injection, CSRF, and more.
+1.7 **Bandwidth Usage Monitor**
 
-2. Subdomain Scanner
+   - Monitor real-time bandwidth usage across network interfaces.
 
-    Discover subdomains of a given domain for further penetration testing.
+1.8 **Nmap Wrapper**
 
-3. HTTP Header Analyzer
+   - Integrate Nmap to perform detailed network and security scans.
 
-    Analyze HTTP headers for security issues and configuration weaknesses.
 
-4. URL Expander and Analyzer
 
-    Expand shortened URLs and analyze them for potential risks (phishing or malware).
+### **2. Web Penetration Testing Tools**
 
-5. Brute Force Attack Tool (Simulated)
+2.1 **Web Vulnerability Scanner**
 
-    Simulate brute-force attacks on login pages to test password policies.
+   - Scan websites for vulnerabilities such as XSS, SQL injection, CSRF, and more.
 
-6. SSL/TLS Certificate Checker
+2.2 **Subdomain Scanner**
 
-    Analyze SSL certificates of websites to check for weaknesses and expiration.
+   - Discover subdomains of a given domain for further penetration testing.
 
-Cryptography and Hashing Tools
-1. Hash Generators
+2.3 **HTTP Header Analyzer**
 
-    Generate cryptographic hashes (MD5, SHA-1, SHA-256) for given inputs.
+   - Analyze HTTP headers for security issues and configuration weaknesses.
 
-2. Digital Signature Verifier
+2.4 **URL Expander and Analyzer**
 
-    Verify the authenticity of digital signatures on files and messages.
+   - Expand shortened URLs and analyze them for potential risks (phishing or malware).
 
-3. File Encryption/Decryption Tool
+2.5 **Brute Force Attack Tool (Simulated)**
 
-    Encrypt and decrypt files using AES or RSA encryption.
+   - Simulate brute-force attacks on login pages to test password policies.
 
-4. JWT Decoder
+2.6 **SSL/TLS Certificate Checker**
 
-    Decode and inspect JSON Web Tokens for security verification.
+   - Analyze SSL certificates of websites to check for weaknesses and expiration.
 
-5. Password Manager
 
-    Securely store and generate strong passwords using encryption.
 
-6. Password Strength Checker
+### **3. Cryptography and Hashing Tools**
 
-    Check the strength and security of passwords based on length and complexity.
+3.1 **Hash Generators**
 
-7. Steganography Utility
+   - Generate cryptographic hashes (MD5, SHA-1, SHA-256) for given inputs.
 
-    Hide and extract messages within image files using steganography.
+3.2 **Digital Signature Verifier**
 
-System and File Security Tools
-1. File Integrity Checker
+   - Verify the authenticity of digital signatures on files and messages.
 
-    Monitor and verify file integrity by detecting changes using hash comparison.
+3.3 **File Encryption/Decryption Tool**
 
-2. Process Monitor
+   - Encrypt and decrypt files using AES or RSA encryption.
 
-    Monitor real-time system processes and detect anomalies based on CPU/memory usage.
+3.4 **JWT Decoder**
 
-3. Log File Analyzer
+   - Decode and inspect JSON Web Tokens for security verification.
 
-    Parse system and application logs for suspicious events or failed login attempts.
+3.5 **Password Manager**
 
-4. Hidden File/Folder Finder
+   - Securely store and generate strong passwords using encryption.
 
-    Detect hidden files or directories in the system that might be used to hide malware.
+3.6 **Password Strength Checker**
 
-5. Data Sanitization Tool
+   - Check the strength and security of passwords based on length and complexity.
 
-    Securely delete files beyond recovery using industry-standard deletion techniques.
+3.7 **Steganography Utility**
 
-6. Keylogger Detection
+   - Hide and extract messages within image files using steganography.
 
-    Detect suspicious processes and software that may be logging keystrokes.
 
-7. Firewall Configuration Tool
 
-    Provide a GUI interface for managing firewall rules on the system.
+### **4. System and File Security Tools**
 
-8. Ransomware Detection Utility
+4.1 **File Integrity Checker**
 
-    Detect ransomware activities by monitoring file encryption and suspicious behavior.
+   - Monitor and verify file integrity by detecting changes using hash comparison.
 
-Web and Domain Tools
-1. DNS Lookup
+4.2 **Process Monitor**
 
-    Resolve domain names to their corresponding IP addresses.
+   - Monitor real-time system processes and detect anomalies based on CPU/memory usage.
 
-2. Whois Lookup
+4.3 **Log File Analyzer**
 
-    Retrieve domain ownership and registration details using Whois data.
+   - Parse system and application logs for suspicious events or failed login attempts.
 
-3. MAC Address Lookup
+4.4 **Hidden File/Folder Finder**
 
-    Identify the manufacturer/vendor of a device based on its MAC address.
+   - Detect hidden files or directories in the system that might be used to hide malware.
 
-4. GeoIP Lookup
+4.5 **Data Sanitization Tool**
 
-    Identify the geographic location of an IP address along with ISP and region information.
+   - Securely delete files beyond recovery using industry-standard deletion techniques.
 
-Advanced Penetration Testing and Forensics Tools
-1. Packet Sniffing (Advanced)
+4.6 **Keylogger Detection**
 
-    Capture and analyze raw network traffic in real-time to detect vulnerabilities and unauthorized access.
+   - Detect suspicious processes and software that may be logging keystrokes.
 
-2. Mobile Device Security Auditor
+4.7 **Firewall Configuration Tool**
 
-    Scan mobile devices to audit for security risks like outdated software or unauthorized apps.
+   - Provide a GUI interface for managing firewall rules on the system.
 
-3. VPN Configuration Checker
+4.8 **Ransomware Detection Utility**
 
-    Validate if a VPN is configured properly and if traffic is being securely tunneled.
+   - Detect ransomware activities by monitoring file encryption and suspicious behavior.
 
-4. Malware Hash Checker
 
-    Verify file hashes against public malware databases like VirusTotal to detect known malicious files.
 
-5. Password Cracker (Simulated)
+### **5. Web and Domain Tools**
 
-    Perform simulated password cracking using dictionary attacks or brute-force (educational purposes only).
+5.1 **DNS Lookup**
 
-6. Dark Web Search Tool
+   - Resolve domain names to their corresponding IP addresses.
 
-    Search for compromised data on the dark web using APIs (ensure legal use).
+5.2 **Whois Lookup**
+
+   - Retrieve domain ownership and registration details using Whois data.
+
+5.3 **MAC Address Lookup**
+
+   - Identify the manufacturer/vendor of a device based on its MAC address.
+
+5.4 **GeoIP Lookup**
+
+   - Identify the geographic location of an IP address along with ISP and region information.
+
+
+
+### **6. Advanced Penetration Testing and Forensics Tools**
+
+6.1 **Packet Sniffing (Advanced)**
+
+   - Capture and analyze raw network traffic in real-time to detect vulnerabilities and unauthorized access.
+
+6.2 **Mobile Device Security Auditor**
+
+   - Scan mobile devices to audit for security risks like outdated software or unauthorized apps.
+
+6.3 **VPN Configuration Checker**
+
+   - Validate if a VPN is configured properly and if traffic is being securely tunneled.
+
+6.4 **Malware Hash Checker**
+
+   - Verify file hashes against public malware databases like VirusTotal to detect known malicious files.
+
+6.5 **Password Cracker (Simulated)**
+
+   - Perform simulated password cracking using dictionary attacks or brute-force.
+
+6.6 **Dark Web Search Tool**
+
+   - Search for compromised data on the dark web using APIs.
