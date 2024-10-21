@@ -1,93 +1,161 @@
-Cybersecurity Toolkit
-
-Cybersecurity Toolkit is a desktop application built using Flutter, designed to provide essential cybersecurity utilities in one place. The app is available on Windows, macOS, and Linux and includes tools such as a Port Scanner, Ping Utility, Traceroute, Hash Generator, and more.
-Features
+Network Security Tools
 1. Port Scanner
 
-    Scan a range of ports on a target IP to identify open or closed ports.
-    Displays results in real time with port status and error handling.
+    Scan IP addresses for open/closed ports.
 
 2. Ping Utility
 
-    Ping a domain or IP address to measure network response time and connectivity.
-    View real-time results including packet loss, latency, and response time.
+    Measure network response time and check connectivity.
 
 3. Traceroute
 
-    Trace the network path between your machine and a target IP or domain.
-    Displays each network hop, including response times for each node along the path.
+    Trace the path of packets between your system and a target host.
 
-4. DNS Lookup
+4. ARP Scanner
 
-    Perform DNS lookups to resolve domain names to their corresponding IP addresses.
+    Scan local network to detect devices based on their IP and MAC addresses.
 
-5. Whois Lookup
+5. Network Traffic Monitor (Packet Sniffer)
 
-    Retrieve WHOIS information for a given domain or IP address.
-    Displays domain ownership, registration dates, and other public information.
+    Capture and analyze network packets to inspect traffic in real-time.
 
-6. MAC Address Lookup
+6. Netstat Utility
 
-    Identify the manufacturer/vendor of a network device based on its MAC address.
+    Display active connections, listening ports, and network interfaces.
 
-7. Hash Generators
+7. Bandwidth Usage Monitor
 
-    Generate cryptographic hashes (MD5, SHA-1, SHA-256) for given text.
-    Useful for verifying file integrity and creating checksums.
+    Monitor real-time bandwidth usage across network interfaces.
 
-8. Password Strength Checker
+8. Nmap Wrapper
 
-    Check the strength of a given password based on length and complexity.
+    Integrate Nmap to perform detailed network and security scans.
 
-9. Encryption/Decryption Utility
+Web Penetration Testing Tools
+1. Web Vulnerability Scanner
 
-    Perform AES or RSA encryption and decryption for simple text messages.
+    Scan websites for vulnerabilities such as XSS, SQL injection, CSRF, and more.
 
-10. Network Traffic Monitor (Packet Sniffer)
+2. Subdomain Scanner
 
-    Capture and analyze network packets using libraries like pcap (Linux/macOS) or winpcap (Windows).
-    Display packet details such as source/destination IP, protocol, packet size, etc.
-    Could include filters for specific protocols (TCP, UDP, ICMP).
+    Discover subdomains of a given domain for further penetration testing.
 
-11. Netstat Utility
+3. HTTP Header Analyzer
 
-    Replicate the functionality of the netstat command.
-    Show active network connections, routing tables, listening ports, and network interfaces.
+    Analyze HTTP headers for security issues and configuration weaknesses.
 
-12. Bandwidth Usage Monitor
+4. URL Expander and Analyzer
 
-    Monitor real-time network bandwidth usage.
-    Track data sent/received per interface (Ethernet, Wi-Fi) and display as graphs or charts.
+    Expand shortened URLs and analyze them for potential risks (phishing or malware).
 
-13. ARP Scanner
+5. Brute Force Attack Tool (Simulated)
 
-    Perform an ARP (Address Resolution Protocol) scan to detect all devices on the local network.
-    List MAC and IP addresses for active hosts, which can help detect unauthorized devices.
+    Simulate brute-force attacks on login pages to test password policies.
 
-14. Nmap Wrapper
+6. SSL/TLS Certificate Checker
 
-    Integrate Nmap (if installed on the system) via command-line to perform more detailed scans, such as OS detection, version detection, or stealth scanning.
-    Password Manager
+    Analyze SSL certificates of websites to check for weaknesses and expiration.
 
-    Securely store and manage passwords using encryption.
-    Generate strong, random passwords based on user-defined rules (length, special characters, etc.).
+Cryptography and Hashing Tools
+1. Hash Generators
 
-15. Digital Signature Verifier
+    Generate cryptographic hashes (MD5, SHA-1, SHA-256) for given inputs.
 
-    Verify digital signatures for files and documents using public-key cryptography.
-    Could integrate PGP/GPG key management for signing and verifying messages.
+2. Digital Signature Verifier
 
-16. SSL/TLS Certificate Checker
+    Verify the authenticity of digital signatures on files and messages.
 
-    Analyze SSL/TLS certificates for websites or servers to check expiration, validity, and the strength of encryption.
-    Report on possible vulnerabilities like weak ciphers or improper configurations.
+3. File Encryption/Decryption Tool
 
-17. JWT Decoder
+    Encrypt and decrypt files using AES or RSA encryption.
 
-    Decode and validate JSON Web Tokens (JWTs) used for authentication.
-    Display header, payload, and signature information with clear formatting.
+4. JWT Decoder
 
-18. Keylogger Detection
+    Decode and inspect JSON Web Tokens for security verification.
 
-    Scan the system for common keylogger signatures or suspicious activities.
-    Use heuristics to detect processes that log keyboard inputs.
+5. Password Manager
+
+    Securely store and generate strong passwords using encryption.
+
+6. Password Strength Checker
+
+    Check the strength and security of passwords based on length and complexity.
+
+7. Steganography Utility
+
+    Hide and extract messages within image files using steganography.
+
+System and File Security Tools
+1. File Integrity Checker
+
+    Monitor and verify file integrity by detecting changes using hash comparison.
+
+2. Process Monitor
+
+    Monitor real-time system processes and detect anomalies based on CPU/memory usage.
+
+3. Log File Analyzer
+
+    Parse system and application logs for suspicious events or failed login attempts.
+
+4. Hidden File/Folder Finder
+
+    Detect hidden files or directories in the system that might be used to hide malware.
+
+5. Data Sanitization Tool
+
+    Securely delete files beyond recovery using industry-standard deletion techniques.
+
+6. Keylogger Detection
+
+    Detect suspicious processes and software that may be logging keystrokes.
+
+7. Firewall Configuration Tool
+
+    Provide a GUI interface for managing firewall rules on the system.
+
+8. Ransomware Detection Utility
+
+    Detect ransomware activities by monitoring file encryption and suspicious behavior.
+
+Web and Domain Tools
+1. DNS Lookup
+
+    Resolve domain names to their corresponding IP addresses.
+
+2. Whois Lookup
+
+    Retrieve domain ownership and registration details using Whois data.
+
+3. MAC Address Lookup
+
+    Identify the manufacturer/vendor of a device based on its MAC address.
+
+4. GeoIP Lookup
+
+    Identify the geographic location of an IP address along with ISP and region information.
+
+Advanced Penetration Testing and Forensics Tools
+1. Packet Sniffing (Advanced)
+
+    Capture and analyze raw network traffic in real-time to detect vulnerabilities and unauthorized access.
+
+2. Mobile Device Security Auditor
+
+    Scan mobile devices to audit for security risks like outdated software or unauthorized apps.
+
+3. VPN Configuration Checker
+
+    Validate if a VPN is configured properly and if traffic is being securely tunneled.
+
+4. Malware Hash Checker
+
+    Verify file hashes against public malware databases like VirusTotal to detect known malicious files.
+
+5. Password Cracker (Simulated)
+
+    Perform simulated password cracking using dictionary attacks or brute-force (educational purposes only).
+
+6. Dark Web Search Tool
+
+    Search for compromised data on the dark web using APIs (ensure legal use).
