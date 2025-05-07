@@ -1,8 +1,6 @@
 ## **CyberSecurity Toolkit**
 
-This is a **cross-platform application** built using **Flutter**, which provides various cybersecurity tools such as:
-
-
+This is a **cross-platform application** built using **Python and PyQt**, which provides various cybersecurity tools for Windows and Linux operating systems. The application combines powerful cybersecurity libraries with an intuitive GUI interface to offer security professionals and enthusiasts a comprehensive toolkit for network analysis, vulnerability assessment, and system security.
 
 ### **1. Network Security Tools**
 
@@ -38,8 +36,6 @@ This is a **cross-platform application** built using **Flutter**, which provides
 
    - Integrate Nmap to perform detailed network and security scans.
 
-
-
 ### **2. Web Penetration Testing Tools**
 
 2.1 **Web Vulnerability Scanner**
@@ -65,8 +61,6 @@ This is a **cross-platform application** built using **Flutter**, which provides
 2.6 **SSL/TLS Certificate Checker**
 
    - Analyze SSL certificates of websites to check for weaknesses and expiration.
-
-
 
 ### **3. Cryptography and Hashing Tools**
 
@@ -97,8 +91,6 @@ This is a **cross-platform application** built using **Flutter**, which provides
 3.7 **Steganography Utility**
 
    - Hide and extract messages within image files using steganography.
-
-
 
 ### **4. System and File Security Tools**
 
@@ -134,8 +126,6 @@ This is a **cross-platform application** built using **Flutter**, which provides
 
    - Detect ransomware activities by monitoring file encryption and suspicious behavior.
 
-
-
 ### **5. Web and Domain Tools**
 
 5.1 **DNS Lookup**
@@ -153,8 +143,6 @@ This is a **cross-platform application** built using **Flutter**, which provides
 5.4 **GeoIP Lookup**
 
    - Identify the geographic location of an IP address along with ISP and region information.
-
-
 
 ### **6. Advanced Penetration Testing and Forensics Tools**
 
