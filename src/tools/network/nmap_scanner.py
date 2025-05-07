@@ -1,12 +1,44 @@
-import nmap
-import ipaddress
 import threading
+import subprocess
+import sys
+import os
+
+# Try to import nmap, but handle the case when it's not installed or when the nmap program is missing
+try:
+    import nmap
+    has_nmap_lib = True
+except ImportError:
+    has_nmap_lib = False
+
+# Also check if the nmap executable is installed
+def is_nmap_installed():
+    try:
+        # Try to run nmap --version
+        if sys.platform == 'win32':  # Windows
+            with open(os.devnull, 'w') as DEVNULL:
+                subprocess.check_call(['where', 'nmap'], stdout=DEVNULL, stderr=DEVNULL)
+        else:  # Unix-like
+            with open(os.devnull, 'w') as DEVNULL:
+                subprocess.check_call(['which', 'nmap'], stdout=DEVNULL, stderr=DEVNULL)
+        return True
+    except (subprocess.SubprocessError, FileNotFoundError):
+        return False
+
+has_nmap_exe = is_nmap_installed()
 
 class NmapScanner:
     def __init__(self):
-        self.scanner = nmap.PortScanner()
+        self.scanner = None
         self.scan_results = {}
         self.current_scan = None
+        
+        # Only initialize the scanner if both the library and executable are available
+        if has_nmap_lib and has_nmap_exe:
+            try:
+                self.scanner = nmap.PortScanner()
+            except Exception:
+                # Handle any initialization errors
+                pass
         
     def scan(self, target, ports=None, arguments="-sV", callback=None):
         """
@@ -19,15 +51,17 @@ class NmapScanner:
             callback: Function to call when scan completes
             
         Returns:
-            Dictionary with scan results (immediately if async=False)
+            Dictionary with scan results or error message
         """
-        # Validate target
-        try:
-            # Check if target is a valid IP or CIDR
-            ipaddress.ip_network(target, strict=False)
-        except ValueError:
-            # If not, assume it's a hostname
-            pass
+        # Check if nmap is available
+        if not has_nmap_lib:
+            return {"error": "Python-nmap library is not installed. Please install it with: pip install python-nmap"}
+        
+        if not has_nmap_exe:
+            return {"error": "Nmap program is not installed or not in PATH. Please install it: https://nmap.org/download.html"}
+        
+        if not self.scanner:
+            return {"error": "Failed to initialize Nmap scanner"}
         
         # Format the port string
         port_str = ports if ports else "1-1024"
