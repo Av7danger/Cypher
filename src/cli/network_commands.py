@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import sys
 import time
+import os
 from src.tools.network.port_scanner import PortScanner
 from src.tools.network.ping_utility import PingUtility
 from src.tools.network.traceroute import Traceroute
@@ -8,6 +9,8 @@ from src.tools.network.arp_scanner import ARPScanner
 from src.tools.network.netstat_utility import NetstatUtility
 from src.tools.network.bandwidth_monitor import BandwidthMonitor
 from src.tools.network.nmap_scanner import NmapScanner
+from src.tools.network.packet_sniffer import PacketSniffer
+from src.tools.network.wireless_scanner import WirelessScanner
 
 def handle_network_commands(args):
     """Handle network module commands."""
@@ -188,6 +191,131 @@ def handle_network_commands(args):
         except Exception as e:
             print(f"Error: {str(e)}")
             sys.exit(1)
+    
+    # Packet Sniffer
+    elif args.command == 'sniff':
+        sniffer = PacketSniffer(args.interface)
+        
+        # Set up filters if provided
+        protocols = []
+        if args.protocol:
+            protocols = [args.protocol.upper()]
+        
+        ips = []
+        if args.ip_address:
+            ips = [args.ip_address]
+        
+        ports = []
+        if args.port:
+            ports = [args.port]
+        
+        if protocols or ips or ports:
+            sniffer.set_filter(protocols=protocols, ips=ips, ports=ports)
+            filter_msg = []
+            if protocols:
+                filter_msg.append(f"protocol={protocols[0]}")
+            if ips:
+                filter_msg.append(f"IP={ips[0]}")
+            if ports:
+                filter_msg.append(f"port={ports[0]}")
+            filter_str = ", ".join(filter_msg)
+            print(f"Filters applied: {filter_str}")
+        
+        # Set up output file if provided
+        output_file = None
+        if args.output:
+            try:
+                output_file = open(args.output, 'w')
+                print(f"Saving output to {args.output}")
+            except Exception as e:
+                print(f"Warning: Could not open output file: {str(e)}")
+                output_file = None
+        
+        # Set up callback to print packets
+        def packet_callback(packet):
+            formatted = sniffer.format_packet(packet, include_data=True)
+            print("\n" + "=" * 70)
+            print(formatted)
+            
+            # Save to file if needed
+            if output_file:
+                output_file.write("=" * 70 + "\n")
+                output_file.write(formatted + "\n")
+                output_file.flush()
+        
+        # Get available interfaces
+        interfaces = sniffer.get_available_interfaces()
+        if interfaces:
+            print(f"Available interfaces: {', '.join(interfaces)}")
+        
+        # Start sniffing
+        print(f"Starting packet capture on interface: {args.interface or 'default'}")
+        print(f"Duration: {args.time} seconds (Ctrl+C to stop)")
+        print("Waiting for packets...")
+        
+        # Start the sniffer
+        sniffer.start(callback=packet_callback, timeout=args.time if args.time > 0 else None)
+        
+        try:
+            # Keep main thread alive until timeout or Ctrl+C
+            while sniffer.running:
+                time.sleep(0.1)
+        except KeyboardInterrupt:
+            print("\nStopping packet capture...")
+        finally:
+            sniffer.stop()
+            if output_file:
+                output_file.close()
+            
+        print("\nPacket capture complete.")
+        print(f"Captured {len(sniffer.packets)} packets.")
+        
+        if output_file:
+            print(f"Results saved to {args.output}")
+    
+    # Wireless Scanner
+    elif args.command == 'wifi':
+        scanner = WirelessScanner()
+        interfaces = scanner.get_interfaces()
+        
+        if not interfaces:
+            print("Error: No wireless interfaces found.")
+            sys.exit(1)
+        
+        interface = args.interface
+        if not interface:
+            # Use first available interface
+            interface = interfaces[0]
+            print(f"Using default wireless interface: {interface}")
+        elif interface not in interfaces:
+            print(f"Warning: Specified interface '{interface}' not found in available interfaces ({', '.join(interfaces)})")
+            print(f"Attempting to use it anyway...")
+        
+        print(f"Scanning for wireless networks using interface '{interface}'...")
+        networks = scanner.scan(interface)
+        
+        if not networks:
+            print("No wireless networks found.")
+            sys.exit(0)
+        
+        print(f"\nFound {len(networks)} wireless networks:")
+        print("-" * 80)
+        print(f"{'SSID':<30} {'Security':<20} {'Signal':<8} {'Channel':<8} {'BSSID':<17}")
+        print("-" * 80)
+        
+        for network in networks:
+            ssid = network.get('ssid', '<Hidden>')
+            security = network.get('security_full', network.get('security', 'Unknown'))
+            signal = f"{network.get('signal', 0)}%"
+            channel = network.get('channel', 'N/A')
+            bssid = network.get('bssid', 'N/A')
+            
+            print(f"{ssid:<30} {security:<20} {signal:<8} {channel:<8} {bssid:<17}")
+            
+            # Show security rating if requested
+            if args.rate:
+                rating, desc = scanner.get_security_rating(security)
+                print(f"  Security Rating: {rating}/5 - {desc}")
     
     else:
         print(f"Error: Unknown network command '{args.command}'")

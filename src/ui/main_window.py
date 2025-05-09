@@ -15,6 +15,7 @@ from src.ui.crypto_tab import CryptoToolsTab
 from src.ui.system_tab import SystemToolsTab
 from src.ui.web_domain_tab import WebDomainTab
 from src.ui.web_pentest_tab import WebPentestTab
+from src.ui.malware_tab import MalwareTab
 from src.utils.theme_manager import ThemeManager, AnimatedWidget
 
 # Global exception hook to catch unhandled exceptions
@@ -50,10 +51,13 @@ class UIInitThread(QThread):
             self.init_progress.emit(60, "Initializing System Tools...")
             QThread.msleep(100)
             
-            self.init_progress.emit(80, "Initializing Web Domain Tools...")
+            self.init_progress.emit(70, "Initializing Web Domain Tools...")
             QThread.msleep(100)
             
-            self.init_progress.emit(90, "Initializing Web Pentest Tools...")
+            self.init_progress.emit(80, "Initializing Web Pentest Tools...")
+            QThread.msleep(100)
+            
+            self.init_progress.emit(90, "Initializing Malware Analysis Tools...")
             QThread.msleep(100)
             
             self.init_progress.emit(100, "Ready!")
@@ -170,6 +174,7 @@ class MainWindow(QMainWindow):
         self.system_tab = None
         self.web_domain_tab = None
         self.web_pentest_tab = None
+        self.malware_tab = None
         
         # Create and start initialization thread
         self.init_thread = UIInitThread()
@@ -269,6 +274,7 @@ class MainWindow(QMainWindow):
             self.system_tab = SystemToolsTab()
             self.web_domain_tab = WebDomainTab()
             self.web_pentest_tab = WebPentestTab()
+            self.malware_tab = MalwareTab()
             
             # Now add tabs to tab widget (also in main thread)
             self.finalize_init()
@@ -285,6 +291,7 @@ class MainWindow(QMainWindow):
         system_icon = QIcon.fromTheme("computer", QIcon())
         web_icon = QIcon.fromTheme("web-browser", QIcon())
         pentest_icon = QIcon.fromTheme("system-search", QIcon())
+        malware_icon = QIcon.fromTheme("dialog-warning", QIcon())
         
         # If theme icons not available, use text-based icons (emojis)
         if network_icon.isNull():
@@ -297,6 +304,8 @@ class MainWindow(QMainWindow):
             web_icon = self.create_text_icon("🌍")
         if pentest_icon.isNull():
             pentest_icon = self.create_text_icon("🔍")
+        if malware_icon.isNull():
+            malware_icon = self.create_text_icon("🦠")
         
         # Add tabs to tab widget with icons
         if self.network_tab:
@@ -309,6 +318,8 @@ class MainWindow(QMainWindow):
             self.tabs.addTab(self.web_domain_tab, web_icon, 'Web & Domain')
         if self.web_pentest_tab:
             self.tabs.addTab(self.web_pentest_tab, pentest_icon, 'Web Pentest')
+        if self.malware_tab:
+            self.tabs.addTab(self.malware_tab, malware_icon, 'Malware Analysis')
         
         # Set initial tab style
         self.update_tab_style()
@@ -584,6 +595,12 @@ class MainWindow(QMainWindow):
 <li>Header Analyzer - Check HTTP security headers</li>
 <li>Subdomain Scanner - Find subdomains</li>
 <li>XSS Scanner - Test for cross-site scripting</li>
+</ul>
+
+<b>Malware Analysis:</b>
+<ul>
+<li>Malware Hash Checker - Verify file hashes against malware databases</li>
+<li>Static Analysis - Analyze files for suspicious characteristics</li>
 </ul>
 
 <p>For more information and documentation, visit our GitHub repository.</p>

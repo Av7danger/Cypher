@@ -7,6 +7,7 @@ from src.cli.system_commands import handle_system_commands
 from src.cli.web_domain_commands import handle_web_domain_commands
 from src.cli.web_pentest_commands import handle_web_pentest_commands
 from src.cli.pentest_commands import handle_pentest_commands
+from src.cli.malware_commands import handle_malware_commands
 
 def parse_arguments():
     """Parse command line arguments for the Cypher CLI."""
@@ -54,6 +55,20 @@ def parse_arguments():
     nmap = network_subparsers.add_parser('nmap', help='Run Nmap scan')
     nmap.add_argument('target', help='Target hostname or IP address')
     nmap.add_argument('-a', '--arguments', help='Additional Nmap arguments', default='-sV')
+    
+    # Packet Sniffer
+    packet_sniffer = network_subparsers.add_parser('sniff', help='Capture and analyze network packets')
+    packet_sniffer.add_argument('-i', '--interface', help='Network interface to capture packets on')
+    packet_sniffer.add_argument('-t', '--time', type=int, default=30, help='Capture duration in seconds (0 for indefinite)')
+    packet_sniffer.add_argument('-p', '--protocol', help='Protocol filter (TCP, UDP, ICMP)')
+    packet_sniffer.add_argument('-ip', '--ip-address', help='Filter by IP address')
+    packet_sniffer.add_argument('-pt', '--port', type=int, help='Filter by port number')
+    packet_sniffer.add_argument('-o', '--output', help='Output file to save captured packets')
+    
+    # Wireless Scanner
+    wifi_scanner = network_subparsers.add_parser('wifi', help='Scan for wireless networks')
+    wifi_scanner.add_argument('-i', '--interface', help='Wireless interface to use')
+    wifi_scanner.add_argument('-r', '--rate', action='store_true', help='Include security rating')
     
     # Crypto Tools
     crypto_parser = subparsers.add_parser('crypto', help='Cryptography tools')
@@ -129,6 +144,19 @@ def parse_arguments():
     sqli = pentest_subparsers.add_parser('sqli', help='Scan for SQL injection vulnerabilities')
     sqli.add_argument('url', help='URL to scan')
     
+    # Malware Analysis Tools
+    malware_parser = subparsers.add_parser('malware', help='Malware analysis tools')
+    malware_subparsers = malware_parser.add_subparsers(dest='command', help='Malware command to run')
+    
+    # Malware Hash Checker
+    hash_check = malware_subparsers.add_parser('hashcheck', help='Check file hash against malware databases')
+    hash_check.add_argument('file', help='File to check')
+    hash_check.add_argument('-k', '--api-key', help='VirusTotal API key')
+    
+    # Static Analysis Tool
+    static_analyze = malware_subparsers.add_parser('analyze', help='Perform static analysis on a file')
+    static_analyze.add_argument('file', help='File to analyze')
+    
     return parser.parse_args()
 
 def run_cli():
@@ -152,6 +180,8 @@ def run_cli():
         handle_web_pentest_commands(args)
     elif args.module == 'pentest':
         handle_pentest_commands(args)
+    elif args.module == 'malware':
+        handle_malware_commands(args)
     else:
         print(f"Error: Unknown module '{args.module}'")
         sys.exit(1)
