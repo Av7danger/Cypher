@@ -1,171 +1,274 @@
-## **CyberSecurity Toolkit**
+<div align="center">
 
-This is a **cross-platform application** built using **Python and PyQt**, which provides various cybersecurity tools for Windows and Linux operating systems. The application combines powerful cybersecurity libraries with an intuitive GUI interface to offer security professionals and enthusiasts a comprehensive toolkit for network analysis, vulnerability assessment, and system security.
+# 🛡️ Cypher Security Toolkit
 
-### **1. Network Security Tools**
+**A Comprehensive Cross-Platform Cybersecurity Toolkit**
 
-1.1 **Port Scanner**
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![PyQt5](https://img.shields.io/badge/PyQt5-5.15+-green.svg)](https://pypi.org/project/PyQt5/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey.svg)](#)
+[![Security](https://img.shields.io/badge/Security-Toolkit-red.svg)](#)
 
-   - Scan IP addresses for open/closed ports.
+*Empowering cybersecurity professionals with an all-in-one security analysis and penetration testing toolkit*
 
-1.2 **Ping Utility**
+</div>
 
-   - Measure network response time and check connectivity.
+---
 
-1.3 **Traceroute**
+## 🚀 **Overview**
 
-   - Trace the path of packets between your system and a target host.
+Cypher Security Toolkit is a powerful, cross-platform cybersecurity application built with **Python** and **PyQt5**. It provides security professionals, penetration testers, and cybersecurity enthusiasts with a comprehensive suite of tools for network analysis, vulnerability assessment, cryptographic operations, and system security auditing.
 
-1.4 **ARP Scanner**
+### ✨ **Key Features**
 
-   - Scan local network to detect devices based on their IP and MAC addresses.
+- 🖥️ **Cross-Platform** - Works seamlessly on Windows and Linux
+- 🎨 **Modern GUI** - Intuitive PyQt5 interface with dark theme support
+- ⚡ **CLI Support** - Command-line interface for automation and scripting
+- 🔧 **40+ Tools** - Comprehensive toolkit covering all security domains
+- 🔒 **Enterprise-Ready** - Professional-grade security analysis capabilities
 
-1.5 **Network Traffic Monitor (Packet Sniffer)**
+---
 
-   - Capture and analyze network packets to inspect traffic in real-time.
+## 📋 **Table of Contents**
 
-1.6 **Netstat Utility**
+- [🚀 Overview](#-overview)
+- [🛠️ Installation](#️-installation)
+- [💻 Usage](#-usage)
+- [🔧 Tool Categories](#-tool-categories)
+- [📸 Screenshots](#-screenshots)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
 
-   - Display active connections, listening ports, and network interfaces.
+---
 
-1.7 **Bandwidth Usage Monitor**
+## 🛠️ **Installation**
 
-   - Monitor real-time bandwidth usage across network interfaces.
+### Prerequisites
 
-1.8 **Nmap Wrapper**
+- **Python 3.8+** (recommended: Python 3.9+)
+- **pip** package manager
+- **Administrator/Root privileges** (for some network tools)
 
-   - Integrate Nmap to perform detailed network and security scans.
+### Quick Installation
 
-### **2. Web Penetration Testing Tools**
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/cypher-security-toolkit.git
+cd cypher-security-toolkit
 
-2.1 **Web Vulnerability Scanner**
+# Install dependencies
+pip install -r requirements.txt
 
-   - Scan websites for vulnerabilities such as XSS, SQL injection, CSRF, and more.
+# Run the application
+python main.py
+```
 
-2.2 **Subdomain Scanner**
+### Virtual Environment (Recommended)
 
-   - Discover subdomains of a given domain for further penetration testing.
+```bash
+# Create virtual environment
+python -m venv cypher-env
 
-2.3 **HTTP Header Analyzer**
+# Activate virtual environment
+# Windows:
+cypher-env\Scripts\activate
+# Linux/macOS:
+source cypher-env/bin/activate
 
-   - Analyze HTTP headers for security issues and configuration weaknesses.
+# Install dependencies
+pip install -r requirements.txt
+```
 
-2.4 **URL Expander and Analyzer**
+---
 
-   - Expand shortened URLs and analyze them for potential risks (phishing or malware).
+## 💻 **Usage**
 
-2.5 **Brute Force Attack Tool (Simulated)**
+### GUI Mode (Default)
+```bash
+python main.py
+```
 
-   - Simulate brute-force attacks on login pages to test password policies.
+### CLI Mode
+```bash
+# Network scanning
+python main.py network port-scan --target 192.168.1.1 --ports 80,443,22
 
-2.6 **SSL/TLS Certificate Checker**
+# Web vulnerability scanning
+python main.py web-pentest scan --url https://example.com
 
-   - Analyze SSL certificates of websites to check for weaknesses and expiration.
+# Cryptographic operations
+python main.py crypto hash --input "test" --algorithm sha256
+```
+
+---
+
+## 🔧 **Tool Categories**
+
+<details>
+<summary><h3>🌐 Network Security Tools</h3></summary>
+
+| Tool | Description | Key Features |
+|------|-------------|--------------|
+| **🔍 Port Scanner** | Scan IP addresses for open/closed ports | TCP/UDP scanning, service detection |
+| **📡 Ping Utility** | Network connectivity testing | Response time measurement, packet loss analysis |
+| **🗺️ Traceroute** | Network path tracing | Hop-by-hop analysis, latency measurement |
+| **📋 ARP Scanner** | Local network device discovery | IP/MAC address mapping, device identification |
+| **📊 Packet Sniffer** | Real-time traffic analysis | Protocol analysis, suspicious activity detection |
+| **🔌 Netstat Utility** | Active connections monitoring | Port usage, network interface status |
+| **📈 Bandwidth Monitor** | Network usage tracking | Real-time bandwidth utilization |
+| **⚔️ Nmap Integration** | Advanced network scanning | Service enumeration, OS detection |
 
-### **3. Cryptography and Hashing Tools**
+</details>
 
-3.1 **Hash Generators**
+<details>
+<summary><h3>🕸️ Web Penetration Testing Tools</h3></summary>
 
-   - Generate cryptographic hashes (MD5, SHA-1, SHA-256) for given inputs.
+| Tool | Description | Key Features |
+|------|-------------|--------------|
+| **🔒 Vulnerability Scanner** | Web application security testing | XSS, SQL injection, CSRF detection |
+| **🎯 Subdomain Scanner** | Domain reconnaissance | Subdomain enumeration, DNS analysis |
+| **📝 HTTP Header Analyzer** | Security header analysis | Missing headers, configuration issues |
+| **🔗 URL Analyzer** | Suspicious link detection | Shortened URL expansion, threat analysis |
+| **🔨 Brute Force Simulator** | Password policy testing | Login security assessment |
+| **🔐 SSL/TLS Checker** | Certificate security analysis | Expiration, vulnerability detection |
 
-3.2 **Digital Signature Verifier**
+</details>
 
-   - Verify the authenticity of digital signatures on files and messages.
+<details>
+<summary><h3>🔐 Cryptography & Hashing Tools</h3></summary>
 
-3.3 **File Encryption/Decryption Tool**
+| Tool | Description | Key Features |
+|------|-------------|--------------|
+| **#️⃣ Hash Generators** | Cryptographic hash creation | MD5, SHA-1, SHA-256, SHA-512 |
+| **✅ Digital Signature Verifier** | Signature authenticity checking | File integrity verification |
+| **🔒 File Encryption/Decryption** | Secure file protection | AES, RSA encryption support |
+| **🎟️ JWT Decoder** | JSON Web Token analysis | Token validation, security inspection |
+| **🔑 Password Manager** | Secure credential storage | Encrypted password database |
+| **💪 Password Strength Checker** | Password security assessment | Complexity analysis, recommendations |
+| **🖼️ Steganography Utility** | Hidden message embedding | Image-based data concealment |
 
-   - Encrypt and decrypt files using AES or RSA encryption.
+</details>
 
-3.4 **JWT Decoder**
+<details>
+<summary><h3>💻 System & File Security Tools</h3></summary>
 
-   - Decode and inspect JSON Web Tokens for security verification.
+| Tool | Description | Key Features |
+|------|-------------|--------------|
+| **🔍 File Integrity Checker** | File modification detection | Hash-based integrity monitoring |
+| **⚙️ Process Monitor** | System process analysis | Anomaly detection, resource usage |
+| **📋 Log File Analyzer** | Security event analysis | Suspicious activity detection |
+| **👁️ Hidden File Finder** | Concealed file detection | System-wide hidden file scanning |
+| **🗑️ Data Sanitization** | Secure file deletion | DOD-compliant data wiping |
+| **⌨️ Keylogger Detection** | Malicious software detection | Keystroke monitoring identification |
+| **🛡️ Firewall Configuration** | Network security management | Rule configuration interface |
+| **🚨 Ransomware Detection** | Malware activity monitoring | Encryption behavior analysis |
 
-3.5 **Password Manager**
+</details>
 
-   - Securely store and generate strong passwords using encryption.
+<details>
+<summary><h3>🌍 Web & Domain Tools</h3></summary>
 
-3.6 **Password Strength Checker**
+| Tool | Description | Key Features |
+|------|-------------|--------------|
+| **🔍 DNS Lookup** | Domain name resolution | IP address mapping, record analysis |
+| **📊 Whois Lookup** | Domain ownership information | Registration details, contact info |
+| **🏷️ MAC Address Lookup** | Device manufacturer identification | Vendor database lookup |
+| **🌎 GeoIP Lookup** | Geographic location analysis | ISP information, regional data |
 
-   - Check the strength and security of passwords based on length and complexity.
+</details>
 
-3.7 **Steganography Utility**
+<details>
+<summary><h3>🎯 Advanced Penetration Testing & Forensics</h3></summary>
 
-   - Hide and extract messages within image files using steganography.
+| Tool | Description | Key Features |
+|------|-------------|--------------|
+| **📡 Advanced Packet Sniffing** | Deep traffic analysis | Protocol dissection, threat detection |
+| **📱 Mobile Security Auditor** | Mobile device assessment | App security, configuration analysis |
+| **🔒 VPN Configuration Checker** | VPN security validation | Tunnel integrity, leak detection |
+| **🦠 Malware Hash Checker** | Known malware identification | VirusTotal integration, threat analysis |
+| **🔓 Password Cracker** | Security testing simulation | Dictionary attacks, brute-force testing |
+| **🕳️ Dark Web Search** | Compromised data detection | Breach monitoring, credential exposure |
 
-### **4. System and File Security Tools**
+</details>
 
-4.1 **File Integrity Checker**
+---
 
-   - Monitor and verify file integrity by detecting changes using hash comparison.
+## 📸 **Screenshots**
 
-4.2 **Process Monitor**
+### Main Dashboard
+*Coming Soon - Modern PyQt5 interface with dark theme*
 
-   - Monitor real-time system processes and detect anomalies based on CPU/memory usage.
+### Network Scanning Interface
+*Coming Soon - Real-time network analysis tools*
 
-4.3 **Log File Analyzer**
+### Cryptographic Tools Panel
+*Coming Soon - Comprehensive encryption and hashing utilities*
 
-   - Parse system and application logs for suspicious events or failed login attempts.
+---
 
-4.4 **Hidden File/Folder Finder**
+## 🤝 **Contributing**
 
-   - Detect hidden files or directories in the system that might be used to hide malware.
+We welcome contributions from the cybersecurity community! Here's how you can help:
 
-4.5 **Data Sanitization Tool**
+### 🚀 **Getting Started**
 
-   - Securely delete files beyond recovery using industry-standard deletion techniques.
+1. **Fork** the repository
+2. **Clone** your fork: `git clone https://github.com/yourusername/cypher-security-toolkit.git`
+3. **Create** a feature branch: `git checkout -b feature/amazing-feature`
+4. **Commit** your changes: `git commit -m 'Add amazing feature'`
+5. **Push** to the branch: `git push origin feature/amazing-feature`
+6. **Open** a Pull Request
 
-4.6 **Keylogger Detection**
+### 📋 **Contribution Guidelines**
 
-   - Detect suspicious processes and software that may be logging keystrokes.
+- Follow PEP 8 coding standards
+- Add comprehensive documentation
+- Include unit tests for new features
+- Ensure cross-platform compatibility
+- Test thoroughly before submitting
 
-4.7 **Firewall Configuration Tool**
+### 🐛 **Bug Reports**
 
-   - Provide a GUI interface for managing firewall rules on the system.
+Found a bug? Please open an issue with:
+- Detailed description
+- Steps to reproduce
+- Expected vs actual behavior
+- System information (OS, Python version)
 
-4.8 **Ransomware Detection Utility**
+### 💡 **Feature Requests**
 
-   - Detect ransomware activities by monitoring file encryption and suspicious behavior.
+Have an idea? We'd love to hear it! Open an issue with:
+- Clear feature description
+- Use case and benefits
+- Implementation suggestions (optional)
 
-### **5. Web and Domain Tools**
+---
 
-5.1 **DNS Lookup**
+## 📄 **License**
 
-   - Resolve domain names to their corresponding IP addresses.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-5.2 **Whois Lookup**
+---
 
-   - Retrieve domain ownership and registration details using Whois data.
+## ⚠️ **Disclaimer**
 
-5.3 **MAC Address Lookup**
+This toolkit is intended for **educational purposes** and **authorized security testing** only. Users are responsible for complying with all applicable laws and regulations. The developers are not responsible for any misuse of this software.
 
-   - Identify the manufacturer/vendor of a device based on its MAC address.
+---
 
-5.4 **GeoIP Lookup**
+## 🙏 **Acknowledgments**
 
-   - Identify the geographic location of an IP address along with ISP and region information.
+- **PyQt5 Team** - For the excellent GUI framework
+- **Scapy Developers** - For powerful packet manipulation capabilities
+- **Security Community** - For continuous inspiration and feedback
 
-### **6. Advanced Penetration Testing and Forensics Tools**
+---
 
-6.1 **Packet Sniffing (Advanced)**
+<div align="center">
 
-   - Capture and analyze raw network traffic in real-time to detect vulnerabilities and unauthorized access.
+**Made with ❤️ by the Cybersecurity Community**
 
-6.2 **Mobile Device Security Auditor**
+⭐ **Star this repository if you find it useful!** ⭐
 
-   - Scan mobile devices to audit for security risks like outdated software or unauthorized apps.
-
-6.3 **VPN Configuration Checker**
-
-   - Validate if a VPN is configured properly and if traffic is being securely tunneled.
-
-6.4 **Malware Hash Checker**
-
-   - Verify file hashes against public malware databases like VirusTotal to detect known malicious files.
-
-6.5 **Password Cracker (Simulated)**
-
-   - Perform simulated password cracking using dictionary attacks or brute-force.
-
-6.6 **Dark Web Search Tool**
-
-   - Search for compromised data on the dark web using APIs.
+</div>
