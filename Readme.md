@@ -267,7 +267,7 @@ This toolkit is intended for **educational purposes** and **authorized security 
 
 <div align="center">
 
-**Made with ❤️ by the Cybersecurity Community**
+**Made with ❤️ by the Av7danger**
 
 ⭐ **Star this repository if you find it useful!** ⭐
 
